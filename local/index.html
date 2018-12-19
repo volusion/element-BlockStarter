@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script crossorigin src="https://unpkg.com/aphrodite@2.2.1/dist/aphrodite.umd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
+        <script src="https://sdk.v2-prod.volusion.com/element-sdk.umd.js"></script>
+        <script src="component.umd.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script>
+        var blockConfig = {
+            typography: {
+                baseFontSize: "16px",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+                headingWeight: 700
+            },
+            color: {
+                background: "#fff",
+                link: "#777",
+                primary: '#333',
+                text: '#333'
+            },
+            globalComponents: {
+                'volComponentButton': {
+                    buttonStyles: {
+                        textColor: '#343538',
+                        textTransform: 'uppercase',
+                        backgroundColor: '#fff',
+                        borderColor: '#343538',
+                        hoverTextColor: '#fff',
+                        hoverBackgroundColor: '#343538',
+                        hoverBorderColor: '#343538',
+                        borderThickness: 'basic', // basic, thin, thick, none
+                        size: 'medium', // small, medium, large, 'block'
+                        rounded: 'small', // none, small, medium, large, pill
+                        growOnHover: false
+                    }
+                }
+            },
+            props: {
+                queryParams: {},
+                color: {
+                    background: 'yellow'
+                },
+                text: "Hello from props"
+            }
+        }
+
+        window.ElementSdk.client.configure({
+            tenant: "5b328aba89ed0900015acbcc"
+        });
+
+        var utils = {
+            client: window.ElementSdk.client,
+            seo: window.ElementSdk.seo
+        };
+
+        var VolusionPropTypes = window.ElementSdk.VolusionPropTypes;
+        var Components = window.ElementSdk.Components;
+
+        var blockOutput  = volBlockHelloWorldBlock.factory(
+            { React, VolusionPropTypes, Components },
+            utils,
+            { StyleSheet: aphrodite.StyleSheet, css: aphrodite.css },
+            { color: blockConfig.color, globalComponents: blockConfig.globalComponents, typography: blockConfig.typography },
+            { ...blockConfig.props }
+        );
+
+        volBlockHelloWorldBlock.getDataProps(utils, blockConfig.props).then((dataProps) => {
+            ReactDOM.render(
+                blockOutput.block({ ...blockConfig.props, data:dataProps }),
+                document.getElementById('root')
+            );
+        })
+    </script>
+</html>
