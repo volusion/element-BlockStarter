@@ -8,7 +8,7 @@ const defaultConfig = {
 };
 
 const factory = (
-    { React, VolusionPropTypes, Components },
+    { React, ElementPropTypes, Components },
     utils,
     { StyleSheet, css },
     globalStyles,
@@ -19,16 +19,16 @@ const factory = (
     }
     const classes = StyleSheet.create(styles(globalStyles, blockConfig));
     const Button = Components.Button.factory(
-        { React, VolusionPropTypes },
+        { React, ElementPropTypes },
         { StyleSheet, css },
         globalStyles
     );
 
     const configSpec = {
-        color: VolusionPropTypes.shape({
-            background: VolusionPropTypes.color
+        color: ElementPropTypes.shape({
+            background: ElementPropTypes.color
         }),
-        text: VolusionPropTypes.string
+        text: ElementPropTypes.string
     };
 
     const block = class extends React.Component {
@@ -49,9 +49,9 @@ const factory = (
             return (
                 <div className={css(classes.div)}>
                     {this.props.text}{' '}
-                    <Button.component onClick={this.click}>
+                    <Button onClick={this.click}>
                         Click me {this.state.count}{' '}
-                    </Button.component>
+                    </Button>
                 </div>
             );
         }
