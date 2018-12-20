@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, css, StyleSheetTestUtils } from 'aphrodite';
-import { VolusionPropTypes } from '@volusion/element-proptypes';
+import { ElementPropTypes } from '@volusion/element-proptypes';
 import * as Components from '@volusion/element-components';
 import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -51,7 +51,7 @@ describe('The Starter Block', () => {
             const blockConfig = {};
 
             const blockSpec = createBlock(
-                { React, VolusionPropTypes, Components },
+                { React, ElementPropTypes, Components },
                 utils,
                 { StyleSheet, css },
                 globalStyles,
@@ -79,7 +79,7 @@ describe('The Starter Block', () => {
             };
 
             const blockSpec = createBlock(
-                { React, VolusionPropTypes, Components },
+                { React, ElementPropTypes, Components },
                 utils,
                 { StyleSheet, css },
                 globalStyles,
@@ -98,7 +98,7 @@ describe('The Starter Block', () => {
             const blockConfig = {};
 
             const blockSpec = createBlock(
-                { React, VolusionPropTypes, Components },
+                { React, ElementPropTypes, Components },
                 utils,
                 { StyleSheet, css },
                 globalStyles,
