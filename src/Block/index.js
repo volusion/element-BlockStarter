@@ -49,9 +49,9 @@ const factory = (
             return (
                 <div className={css(classes.div)}>
                     {this.props.text}{' '}
-                    <Button onClick={this.click}>
+                    <Button.component onClick={this.click}>
                         Click me {this.state.count}{' '}
-                    </Button>
+                    </Button.component>
                 </div>
             );
         }
