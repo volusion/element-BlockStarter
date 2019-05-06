@@ -10,35 +10,9 @@ import { factory as createBlock } from '../src/index';
 
 const utils = {};
 const globalStyles = {
-    typography: {
-        baseFontSize: '16px',
-        fontFamily:
-            "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-        headingWeight: 700
-    },
-    color: {
-        background: '#fff',
-        link: '#777',
-        primary: '#333',
-        text: '#333'
-    },
-    globalComponents: {
-        volComponentButton: {
-            buttonStyles: {
-                textColor: '#343538',
-                textTransform: 'uppercase',
-                backgroundColor: '#fff',
-                borderColor: '#343538',
-                hoverTextColor: '#fff',
-                hoverBackgroundColor: '#343538',
-                hoverBorderColor: '#343538',
-                borderThickness: 'basic', // basic, thin, thick, none
-                size: 'medium', // small, medium, large, 'block'
-                rounded: 'small', // none, small, medium, large, pill
-                growOnHover: false
-            }
-        }
-    }
+    typography: {},
+    color: {},
+    globalComponents: {}
 };
 
 describe('The Starter Block', () => {
@@ -60,9 +34,6 @@ describe('The Starter Block', () => {
             const wrapper = shallow(<blockSpec.block />);
 
             expect(wrapper.dive().props().text).toBe('Default prop');
-            expect(wrapper.dive().props().color).toEqual({
-                background: 'transparent'
-            });
             expect(wrapper).toMatchSnapshot();
         });
     });
@@ -72,9 +43,6 @@ describe('The Starter Block', () => {
             StyleSheetTestUtils.suppressStyleInjection();
 
             const blockConfig = {
-                color: {
-                    background: 'yellow'
-                },
                 text: 'Hello from props'
             };
 
@@ -88,7 +56,6 @@ describe('The Starter Block', () => {
             const wrapper = shallow(<blockSpec.block />).setProps(blockConfig);
 
             expect(wrapper.props().text).toBe('Hello from props');
-            expect(wrapper.props().color).toEqual({ background: 'yellow' });
             expect(wrapper).toMatchSnapshot();
         });
     });

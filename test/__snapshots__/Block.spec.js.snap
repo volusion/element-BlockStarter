@@ -2,11 +2,6 @@
 
 exports[`The Starter Block when given custom data should render the block using the custom data 1`] = `
 <block
-  color={
-    Object {
-      "background": "yellow",
-    }
-  }
   text="Hello from props"
 >
   <Component />
@@ -25,11 +20,6 @@ exports[`The Starter Block when mounted with default data should match the snaps
         }
       }
       classes={Object {}}
-      color={
-        Object {
-          "background": "transparent",
-        }
-      }
       css={[Function]}
       text="Default prop"
     >
