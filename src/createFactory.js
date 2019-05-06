@@ -3,7 +3,7 @@ import { factory as blockFactory } from './block';
 import { configSchema, defaultConfig } from './blockConfig';
 
 const createFactory = (
-    { React, ElementPropTypes, Components },
+    { React, ElementPropTypes },
     utils,
     { StyleSheet, css },
     globalStyles,
@@ -13,15 +13,10 @@ const createFactory = (
         blockConfig.color = { background: defaultConfig.color.background };
     }
     const classes = StyleSheet.create(styles(globalStyles, blockConfig));
-    const Button = Components.Button.factory(
-        { React, ElementPropTypes },
-        { StyleSheet, css },
-        globalStyles
-    );
 
     const configSpec = configSchema(ElementPropTypes);
 
-    const block = blockFactory({ React, Button, css, classes });
+    const block = blockFactory({ React, css, classes });
 
     return {
         block: React.createFactory(block),
