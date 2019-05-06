@@ -13,47 +13,9 @@
         <div id="root"></div>
     </body>
     <script>
-        var blockConfig = {
-            typography: {
-                baseFontSize: "16px",
-                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-                headingWeight: 700
-            },
-            color: {
-                background: "#fff",
-                link: "#777",
-                primary: '#333',
-                text: '#333'
-            },
-            globalComponents: {
-                'volComponentButton': {
-                    buttonStyles: {
-                        textColor: '#343538',
-                        textTransform: 'uppercase',
-                        backgroundColor: '#fff',
-                        borderColor: '#343538',
-                        hoverTextColor: '#fff',
-                        hoverBackgroundColor: '#343538',
-                        hoverBorderColor: '#343538',
-                        borderThickness: 'basic', // basic, thin, thick, none
-                        size: 'medium', // small, medium, large, 'block'
-                        rounded: 'small', // none, small, medium, large, pill
-                        growOnHover: false
-                    }
-                }
-            },
-            props: {
-                queryParams: {},
-                color: {
-                    background: 'yellow'
-                },
-                text: "Hello from props"
-            }
+        var props = {
+            text: "Element Starter Block"
         }
-
-        window.ElementSdk.client.configure({
-            tenant: "5b328aba89ed0900015acbcc"
-        });
 
         var utils = {
             client: window.ElementSdk.client,
@@ -67,13 +29,13 @@
             { React, ElementPropTypes, Components },
             utils,
             { StyleSheet: aphrodite.StyleSheet, css: aphrodite.css },
-            { color: blockConfig.color, globalComponents: blockConfig.globalComponents, typography: blockConfig.typography },
-            { ...blockConfig.props }
+            { color: {}, globalComponents: {}, typography: {} },
+            { ...props }
         );
 
-        volBlockHelloWorldBlock.getDataProps(utils, blockConfig.props).then((dataProps) => {
+        volBlockHelloWorldBlock.getDataProps(utils, props).then((data) => {
             ReactDOM.render(
-                blockOutput.block({ ...blockConfig.props, data:dataProps }),
+                blockOutput.block({ ...props, data }),
                 document.getElementById('root')
             );
         })
