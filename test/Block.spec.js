@@ -7,9 +7,10 @@ import { factory as blockFactory } from '../src/block';
 import { defaultConfig } from '../src/blockConfig';
 
 describe('The Starter Block', () => {
+    const StarterBlock = blockFactory(React);
+
     describe('when there is no custom data', () => {
         it('should render the block with the default content', () => {
-            const StarterBlock = blockFactory(React);
             const wrapper = shallow(<StarterBlock />);
             expect(wrapper.text()).toBe(defaultConfig.text);
             expect(wrapper).toMatchSnapshot();
@@ -18,7 +19,6 @@ describe('The Starter Block', () => {
 
     describe('when given custom data', () => {
         it('should render the block using the custom data', () => {
-            const StarterBlock = blockFactory(React);
             const customText = 'Custom Block Text';
             const blockConfig = { text: customText };
 
