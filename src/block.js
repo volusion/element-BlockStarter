@@ -20,6 +20,15 @@ const factory = (
 
     const configSpec = configSchema(ElementPropTypes);
 
+    const block = blockFactory({ React, Button, css, classes });
+
+    return {
+        block: React.createFactory(block),
+        config: configSpec
+    };
+};
+
+const blockFactory = ({ React, Button, css, classes }) => {
     const block = class extends React.Component {
         constructor(props) {
             super(props);
@@ -46,10 +55,7 @@ const factory = (
         }
     };
 
-    return {
-        block: React.createFactory(block),
-        config: configSpec
-    };
+    return block;
 };
 
 export { factory, defaultConfig };
