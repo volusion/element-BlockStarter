@@ -1,7 +1,7 @@
 import { factory as blockFactory } from './block';
 import { configSchema } from './blockConfig';
 
-const createFactory = ({ React, ElementPropTypes }) => {
+function createFactory({ React, ElementPropTypes }) {
     const configSpec = configSchema(ElementPropTypes);
 
     const block = blockFactory(React);
@@ -10,6 +10,6 @@ const createFactory = ({ React, ElementPropTypes }) => {
         block: React.createFactory(block),
         config: configSpec
     };
-};
+}
 
 export default createFactory;
