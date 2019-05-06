@@ -8,6 +8,9 @@ configure({ adapter: new Adapter() });
 
 import { factory as createBlock } from '../src/index';
 
+import { factory as blockFactory } from '../src/block';
+import { defaultConfig } from '../src/blockConfig';
+
 const utils = {};
 const globalStyles = {
     typography: {},
@@ -22,18 +25,9 @@ describe('The Starter Block', () => {
 
     describe('when there is no custom data', () => {
         it('should render the block with the default content', () => {
-            const blockConfig = {};
-
-            const blockSpec = createBlock(
-                { React, ElementPropTypes, Components },
-                utils,
-                { StyleSheet, css },
-                globalStyles,
-                blockConfig
-            );
-            const wrapper = shallow(<blockSpec.block />);
-
-            expect(wrapper.dive().props().text).toBe('Default prop');
+            const StarterBlock = blockFactory(React);
+            const wrapper = shallow(<StarterBlock />);
+            expect(wrapper.text()).toBe(defaultConfig.text);
             expect(wrapper).toMatchSnapshot();
         });
     });
