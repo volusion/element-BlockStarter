@@ -59,8 +59,8 @@ describe('The Starter Block', () => {
             );
             const wrapper = shallow(<blockSpec.block />);
 
-            expect(wrapper.props().text).toBe('Default prop');
-            expect(wrapper.props().color).toEqual({
+            expect(wrapper.dive().props().text).toBe('Default prop');
+            expect(wrapper.dive().props().color).toEqual({
                 background: 'transparent'
             });
             expect(wrapper).toMatchSnapshot();

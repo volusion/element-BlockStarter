@@ -15,30 +15,34 @@ exports[`The Starter Block when given custom data should render the block using 
 
 exports[`The Starter Block when mounted with default data should match the snapshot 1`] = `
 <bound createElementWithValidation>
-  <block
-    color={
-      Object {
-        "background": "transparent",
+  <block>
+    <block
+      StyleSheet={
+        Object {
+          "create": [Function],
+          "extend": [Function],
+          "rehydrate": [Function],
+        }
       }
-    }
-    text="Default prop"
-  >
-    <div>
-      Default prop
-    </div>
+      classes={Object {}}
+      color={
+        Object {
+          "background": "transparent",
+        }
+      }
+      css={[Function]}
+      text="Default prop"
+    >
+      <h1>
+        Default prop
+      </h1>
+    </block>
   </block>
 </bound createElementWithValidation>
 `;
 
 exports[`The Starter Block when there is no custom data should render the block with the default content 1`] = `
-<block
-  color={
-    Object {
-      "background": "transparent",
-    }
-  }
-  text="Default prop"
->
+<block>
   <Component />
 </block>
 `;

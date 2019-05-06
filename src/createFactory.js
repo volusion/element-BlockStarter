@@ -1,14 +1,44 @@
-import { factory as blockFactory } from './block';
-import { configSchema } from './blockConfig';
+function createFactory(blockFactory, styles, configSchema) {
+    return function(
+        { React, ElementPropTypes, Components },
+        utils,
+        { StyleSheet, css },
+        globalStyles,
+        blockConfig
+    ) {
+        const classes = StyleSheet.create(styles(globalStyles, blockConfig));
 
-function createFactory({ React, ElementPropTypes }) {
-    const configSpec = configSchema(ElementPropTypes);
+        const generatedComponents = Object.keys(Components).reduce(
+            (componentList, name) => {
+                componentList[name] = Components[name].factory(
+                    { React, ElementPropTypes },
+                    { StyleSheet, css },
+                    globalStyles
+                ).component;
+                return componentList;
+            },
+            {}
+        );
 
-    const block = blockFactory(React);
+        const Block = blockFactory(React, generatedComponents);
 
-    return {
-        block: React.createFactory(block),
-        config: configSpec
+        const block = class extends React.Component {
+            render() {
+                const blockProps = {
+                    ...this.props,
+                    classes,
+                    ...utils,
+                    StyleSheet,
+                    css
+                };
+                return <Block {...blockProps} />;
+            }
+        };
+
+        return {
+            block: React.createFactory(block),
+            config: configSchema(ElementPropTypes)
+        };
     };
 }
 
