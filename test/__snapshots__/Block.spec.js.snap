@@ -21,23 +21,6 @@ exports[`The Starter Block when mounted with default data should match the snaps
   background-color: transparent !important;
 }
 
-.button-hover {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
-  background-color: #fff !important;
-  border-color: #343538 !important;
-  color: #343538 !important;
-}
-
-.button-hover:hover {
-  background-color: #343538 !important;
-  border-color: #343538 !important;
-  color: #fff !important;
-  text-decoration: none !important;
-  -webkit-transition: all 0.2s ease-in-out !important;
-  -moz-transition: all 0.2s ease-in-out !important;
-  transition: all 0.2s ease-in-out !important;
-}
-
 <bound createElementWithValidation>
   <block
     color={
@@ -51,19 +34,6 @@ exports[`The Starter Block when mounted with default data should match the snaps
       className="div"
     >
       Default prop
-       
-      <component
-        onClick={[Function]}
-      >
-        <a
-          className="tc link dib pointer ttu ba bw1 f6 ph3 pv2 br1  button-hover"
-          onClick={[Function]}
-        >
-          Click me 
-          0
-           
-        </a>
-      </component>
     </div>
   </block>
 </bound createElementWithValidation>
