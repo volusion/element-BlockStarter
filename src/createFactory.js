@@ -1,6 +1,6 @@
 import styles from './styles';
 import { factory as blockFactory } from './block';
-import { configSchema, defaultConfig } from './blockConfig';
+import { configSchema } from './blockConfig';
 
 const createFactory = (
     { React, ElementPropTypes },
@@ -9,9 +9,6 @@ const createFactory = (
     globalStyles,
     blockConfig
 ) => {
-    if (!blockConfig.color) {
-        blockConfig.color = { background: defaultConfig.color.background };
-    }
     const classes = StyleSheet.create(styles(globalStyles, blockConfig));
 
     const configSpec = configSchema(ElementPropTypes);
