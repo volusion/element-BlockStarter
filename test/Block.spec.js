@@ -1,28 +1,12 @@
 import React from 'react';
-import { StyleSheet, css, StyleSheetTestUtils } from 'aphrodite';
-import { ElementPropTypes } from '@volusion/element-proptypes';
-import * as Components from '@volusion/element-components';
-import { configure, shallow, mount } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
-
-import { factory as createBlock } from '../src/index';
 
 import { factory as blockFactory } from '../src/block';
 import { defaultConfig } from '../src/blockConfig';
 
-const utils = {};
-const globalStyles = {
-    typography: {},
-    color: {},
-    globalComponents: {}
-};
-
 describe('The Starter Block', () => {
-    beforeEach(() => {
-        StyleSheetTestUtils.suppressStyleInjection();
-    });
-
     describe('when there is no custom data', () => {
         it('should render the block with the default content', () => {
             const StarterBlock = blockFactory(React);
@@ -34,44 +18,14 @@ describe('The Starter Block', () => {
 
     describe('when given custom data', () => {
         it('should render the block using the custom data', () => {
-            StyleSheetTestUtils.suppressStyleInjection();
+            const StarterBlock = blockFactory(React);
+            const customText = 'Custom Block Text';
+            const blockConfig = { text: customText };
 
-            const blockConfig = {
-                text: 'Hello from props'
-            };
+            const wrapper = shallow(<StarterBlock {...blockConfig} />);
 
-            const blockSpec = createBlock(
-                { React, ElementPropTypes, Components },
-                utils,
-                { StyleSheet, css },
-                globalStyles,
-                blockConfig
-            );
-            const wrapper = shallow(<blockSpec.block />).setProps(blockConfig);
-
-            expect(wrapper.props().text).toBe('Hello from props');
+            expect(wrapper.text()).toBe(customText);
             expect(wrapper).toMatchSnapshot();
         });
-    });
-
-    describe('when mounted with default data', () => {
-        it('should match the snapshot', () => {
-            const blockConfig = {};
-
-            const blockSpec = createBlock(
-                { React, ElementPropTypes, Components },
-                utils,
-                { StyleSheet, css },
-                globalStyles,
-                blockConfig
-            );
-            const wrapper = mount(<blockSpec.block />);
-
-            expect(wrapper).toMatchSnapshot();
-        });
-    });
-
-    afterEach(() => {
-        StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
     });
 });

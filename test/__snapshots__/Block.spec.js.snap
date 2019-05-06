@@ -1,34 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Starter Block when given custom data should render the block using the custom data 1`] = `
-<block
-  text="Hello from props"
->
-  <Component />
-</block>
-`;
-
-exports[`The Starter Block when mounted with default data should match the snapshot 1`] = `
-<bound createElementWithValidation>
-  <block>
-    <StarterBlock
-      StyleSheet={
-        Object {
-          "create": [Function],
-          "extend": [Function],
-          "rehydrate": [Function],
-        }
-      }
-      classes={Object {}}
-      css={[Function]}
-      text="Default prop"
-    >
-      <h1>
-        Default prop
-      </h1>
-    </StarterBlock>
-  </block>
-</bound createElementWithValidation>
+<h1>
+  Custom Block Text
+</h1>
 `;
 
 exports[`The Starter Block when there is no custom data should render the block with the default content 1`] = `
