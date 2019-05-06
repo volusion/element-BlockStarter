@@ -1,34 +1,6 @@
-import styles from './styles';
-import { configSchema, defaultConfig } from './blockConfig';
+import { defaultConfig } from './blockConfig';
 
-const factory = (
-    { React, ElementPropTypes, Components },
-    utils,
-    { StyleSheet, css },
-    globalStyles,
-    blockConfig
-) => {
-    if (!blockConfig.color) {
-        blockConfig.color = { background: defaultConfig.color.background };
-    }
-    const classes = StyleSheet.create(styles(globalStyles, blockConfig));
-    const Button = Components.Button.factory(
-        { React, ElementPropTypes },
-        { StyleSheet, css },
-        globalStyles
-    );
-
-    const configSpec = configSchema(ElementPropTypes);
-
-    const block = blockFactory({ React, Button, css, classes });
-
-    return {
-        block: React.createFactory(block),
-        config: configSpec
-    };
-};
-
-const blockFactory = ({ React, Button, css, classes }) => {
+const factory = ({ React, Button, css, classes }) => {
     const block = class extends React.Component {
         constructor(props) {
             super(props);
