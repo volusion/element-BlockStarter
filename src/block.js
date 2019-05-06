@@ -1,11 +1,5 @@
 import styles from './styles';
-
-const defaultConfig = {
-    color: {
-        background: 'transparent'
-    },
-    text: 'Default prop'
-};
+import { configSchema, defaultConfig } from './blockConfig';
 
 const factory = (
     { React, ElementPropTypes, Components },
@@ -24,12 +18,7 @@ const factory = (
         globalStyles
     );
 
-    const configSpec = {
-        color: ElementPropTypes.shape({
-            background: ElementPropTypes.color
-        }),
-        text: ElementPropTypes.string
-    };
+    const configSpec = configSchema(ElementPropTypes);
 
     const block = class extends React.Component {
         constructor(props) {

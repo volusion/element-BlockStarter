@@ -1,4 +1,4 @@
-import { factory, defaultConfig } from './Block';
-import { getDataProps } from './Block/data';
+import { factory, defaultConfig } from './block';
+import { getDataProps } from './data';
 
 export { factory, getDataProps, defaultConfig };
