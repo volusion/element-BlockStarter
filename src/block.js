@@ -1,13 +1,10 @@
 import { defaultConfig } from './blockConfig';
 
 const factory = ({ React, css, classes }) => {
-    const block = class extends React.Component {
-        static defaultProps = defaultConfig;
-        render() {
-            return <div className={css(classes.div)}>{this.props.text}</div>;
-        }
+    const block = function(props) {
+        return <div className={css(classes.div)}>{props.text}</div>;
     };
-
+    block.defaultProps = defaultConfig;
     return block;
 };
 
