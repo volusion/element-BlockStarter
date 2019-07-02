@@ -1,2 +1,1 @@
-const getDataProps = () => Promise.resolve();
-export { getDataProps };
+export const getDataProps = () => Promise.resolve();

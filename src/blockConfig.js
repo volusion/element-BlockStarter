@@ -1,4 +1,4 @@
-const configSchema = ElementPropTypes => {
+export const configSchema = ElementPropTypes => {
     return {
         text: {
             label: 'Text Content',
@@ -7,8 +7,6 @@ const configSchema = ElementPropTypes => {
     };
 };
 
-const defaultConfig = {
+export const defaultConfig = {
     text: 'Default prop'
 };
-
-export { configSchema, defaultConfig };

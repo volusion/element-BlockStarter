@@ -1,6 +1,6 @@
-import createFactory from './createFactory';
+import { createFactory } from './createFactory';
 import { factory as StarterBlock } from './block';
-import styles from './styles';
+import { styles } from './styles';
 import { configSchema, defaultConfig } from './blockConfig';
 import { getDataProps } from './data';
 
