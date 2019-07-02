@@ -25,7 +25,7 @@
         var ElementPropTypes = window.ElementSdk.ElementPropTypes;
         var Components = window.ElementSdk.Components;
 
-        var blockOutput  = volBlockHelloWorldBlock.factory(
+        var blockOutput  = volBlockStarterBlock.factory(
             { React, ElementPropTypes, Components },
             utils,
             { StyleSheet: aphrodite.StyleSheet, css: aphrodite.css },
@@ -33,7 +33,7 @@
             { ...props }
         );
 
-        volBlockHelloWorldBlock.getDataProps(utils, props).then((data) => {
+        volBlockStarterBlock.getDataProps(utils, props).then((data) => {
             ReactDOM.render(
                 blockOutput.block({ ...props, data }),
                 document.getElementById('root')
