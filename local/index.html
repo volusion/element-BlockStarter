@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="utf-8">
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"/>
         <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
@@ -8,36 +9,9 @@
         <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
         <script src="https://sdk.v2-prod.volusion.com/element-sdk.umd.js"></script>
         <script src="component.umd.js"></script>
+        <script src="./index.js"></script>
     </head>
     <body>
         <div id="root"></div>
     </body>
-    <script>
-        var props = {
-            text: "Element Starter Block"
-        }
-
-        var utils = {
-            client: window.ElementSdk.client,
-            seo: window.ElementSdk.seo
-        };
-
-        var ElementPropTypes = window.ElementSdk.ElementPropTypes;
-        var Components = window.ElementSdk.Components;
-
-        var blockOutput  = volBlockStarterBlock.factory(
-            { React, ElementPropTypes, Components },
-            utils,
-            { StyleSheet: aphrodite.StyleSheet, css: aphrodite.css },
-            { color: {}, globalComponents: {}, typography: {} },
-            { ...props }
-        );
-
-        volBlockStarterBlock.getDataProps(utils, props).then((data) => {
-            ReactDOM.render(
-                blockOutput.block({ ...props, data }),
-                document.getElementById('root')
-            );
-        })
-    </script>
 </html>
