@@ -8,5 +8,5 @@ export const configSchema = ElementPropTypes => {
 };
 
 export const defaultConfig = {
-    text: 'Default prop'
+    text: 'Element Starter Block'
 };

@@ -8,6 +8,6 @@ exports[`The Starter Block when given custom data should render the block using 
 
 exports[`The Starter Block when there is no custom data should render the block with the default content 1`] = `
 <h1>
-  Default prop
+  Element Starter Block
 </h1>
 `;
