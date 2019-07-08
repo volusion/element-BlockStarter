@@ -3,11 +3,11 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
-import { factory as blockFactory } from '../src/block';
+import { StarterBlockFactory } from '../src/block';
 import { defaultConfig } from '../src/blockConfig';
 
 describe('The Starter Block', () => {
-    const StarterBlock = blockFactory(React);
+    const StarterBlock = StarterBlockFactory(React);
 
     describe('when there is no custom data', () => {
         it('should render the block with the default content', () => {

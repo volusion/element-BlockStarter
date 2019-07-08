@@ -1,6 +1,6 @@
 import { defaultConfig } from './blockConfig';
 
-export const factory = React => {
+export const StarterBlockFactory = React => {
     function StarterBlock(props) {
         return <h1>{props.text}</h1>;
     }
