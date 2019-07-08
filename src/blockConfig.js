@@ -1,7 +1,7 @@
 export const configSchema = ElementPropTypes => {
     return {
         text: {
-            label: 'Text Content',
+            label: 'Text content',
             type: ElementPropTypes.string
         }
     };
