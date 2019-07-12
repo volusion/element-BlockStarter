@@ -4,8 +4,8 @@
   "description": "Provides a common starting point for all Element blocks",
   "main": "index.js",
   "scripts": {
-    "test": "block-scripts test",
-    "build": "block-scripts build",
+    "test": "block-scripts test --watch",
+    "build": "block-scripts test && block-scripts build",
     "start": "block-scripts start"
   },
   "author": "Volusion, LLC",
