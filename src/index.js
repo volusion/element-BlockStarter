@@ -1,4 +1,4 @@
-import { createFactory } from './createFactory';
+import { createFactory } from '@volusion/element-block-utils';
 import { StarterBlockFactory } from './block';
 import { styles } from './styles';
 import { configSchema, defaultConfig } from './configs';
