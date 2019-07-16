@@ -1,4 +1,4 @@
-import { defaultConfig } from './blockConfig';
+import { defaultConfig } from './configs';
 
 export const StarterBlockFactory = React => {
     function StarterBlock(props) {

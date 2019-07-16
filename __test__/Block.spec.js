@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 import { StarterBlockFactory } from '../src/block';
-import { defaultConfig } from '../src/blockConfig';
+import { defaultConfig } from '../src/configs';
 
 describe('The Starter Block', () => {
     const StarterBlock = StarterBlockFactory(React);
