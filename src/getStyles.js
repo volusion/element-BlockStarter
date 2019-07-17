@@ -1,1 +1,1 @@
-export const styles = () => ({});
+export const getStyles = () => ({});
