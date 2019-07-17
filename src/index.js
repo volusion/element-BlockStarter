@@ -1,8 +1,8 @@
 import { createFactory } from '@volusion/element-block-utils';
-import { StarterBlockFactory } from './block';
-import { styles } from './styles';
+import { StarterBlockFactory } from './Block';
+import { styles } from './getStyles';
 import { configSchema, defaultConfig } from './configs';
-import { getDataProps } from './data';
+import { getDataProps } from './getDataProps';
 
 const factory = createFactory(StarterBlockFactory, styles, configSchema);
 
