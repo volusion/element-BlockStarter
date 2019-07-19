@@ -1,5 +1,11 @@
 const blockModule = volBlockStarterBlock
 
+const tenantId = '$YOUR_TENANT_ID'
+
+window.ElementSdk.client.configure({
+  tenant: tenantId
+});
+
 const globalStyles = {
   color: {},
   globalComponents: {},
@@ -14,6 +20,7 @@ const props = {
 function createBlock() {
   const ElementPropTypes = window.ElementSdk.ElementPropTypes
   const Components = window.ElementSdk.Components
+
   const utils = {
     client: window.ElementSdk.client
   }
