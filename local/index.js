@@ -14,7 +14,9 @@ const props = {
 function createBlock() {
   const ElementPropTypes = window.ElementSdk.ElementPropTypes
   const Components = window.ElementSdk.Components
-  const utils = window.ElementSdk.client
+  const utils = {
+    client: window.ElementSdk.client
+  }
 
   return blockModule.factory(
     { React, ElementPropTypes, Components },
