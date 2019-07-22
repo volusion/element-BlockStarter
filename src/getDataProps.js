@@ -1,1 +1,1 @@
-export const getDataProps = () => Promise.resolve();
+export const getDataProps = (utils, props) => Promise.resolve();

@@ -1,1 +1,1 @@
-export const getStyles = () => ({});
+export const getStyles = (globalStyles, blockConfig) => ({});
