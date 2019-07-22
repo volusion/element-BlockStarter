@@ -25,7 +25,6 @@ describe('The Starter Block', () => {
         it('should render the block with the default content', () => {
             const wrapper = shallow(<StarterBlock />);
             expect(wrapper.text()).toBe(defaultConfig.text);
-            expect(wrapper).toMatchSnapshot();
         });
     });
 
@@ -37,7 +36,6 @@ describe('The Starter Block', () => {
             const wrapper = shallow(<StarterBlock {...blockConfig} />);
 
             expect(wrapper.text()).toBe(customText);
-            expect(wrapper).toMatchSnapshot();
         });
     });
 });
