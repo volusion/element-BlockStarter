@@ -4,6 +4,6 @@ import { getStyles } from './getStyles';
 import { configSchema, defaultConfig } from './configs';
 import { getDataProps } from './getDataProps';
 
-const factory = createFactory(StarterBlockFactory, getStyles, configSchema);
+const factory = createFactory(StarterBlockFactory, { getStyles, configSchema });
 
 export { factory, getDataProps, defaultConfig };
