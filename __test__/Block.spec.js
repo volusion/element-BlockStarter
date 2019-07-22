@@ -1,9 +1,7 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { ElementPropTypes } from '@volusion/element-proptypes'
-import { configure, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
+import { shallow, mount } from 'enzyme';
 
 import { factory as BlockModuleFactory } from '../src/'
 import { StarterBlockFactory } from '../src/Block';
