@@ -1,4 +1,4 @@
-export const configSchema = ElementPropTypes => {
+export const getConfigSchema = ElementPropTypes => {
     return {
         text: {
             label: 'Text content',
