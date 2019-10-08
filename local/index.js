@@ -17,13 +17,13 @@ const props = {
     text: 'Custom prop value for local testing'
 };
 
+const utils = {
+    client: window.ElementSdk.client
+};
+
 function createBlock() {
     const ElementPropTypes = window.ElementSdk.ElementPropTypes;
     const Components = window.ElementSdk.Components;
-
-    const utils = {
-        client: window.ElementSdk.client
-    };
 
     return blockModule.factory(
         { React, ElementPropTypes, Components },
@@ -45,5 +45,4 @@ function renderBlock(data) {
     ReactDOM.render(block, root);
 }
 
-window.onload = () =>
-    blockModule.getDataProps(window.ElementSdk, props).then(renderBlock);
+window.onload = () => blockModule.getDataProps(utils, props).then(renderBlock);
