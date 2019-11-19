@@ -1,3 +1,4 @@
+const { clientUtils } from '@volusion/element-block-utils'
 const blockModule = volBlockStarterBlock
 
 const tenantId = '$YOUR_TENANT_ID'
@@ -21,13 +22,9 @@ function createBlock() {
   const ElementPropTypes = window.ElementSdk.ElementPropTypes
   const Components = window.ElementSdk.Components
 
-  const utils = {
-    client: window.ElementSdk.client
-  }
-
   return blockModule.factory(
     { React, ElementPropTypes, Components },
-    utils,
+    clientUtils,
     aphrodite,
     globalStyles,
     props
