@@ -48,21 +48,8 @@ const props = {
   text: 'Custom prop value for local testing'
 }
 
-function createBlock() {
-  const ElementPropTypes = window.ElementSdk.ElementPropTypes
-  const Components = window.ElementSdk.Components
-
-  return blockModule.factory(
-    { React, ElementPropTypes, Components },
-    utils,
-    aphrodite,
-    globalStyles,
-    props
-  ).block;
-}
-
 function configureBlock(data) {
-  const block = createBlock()
+  const block = blockModule.block;
   return block({ ...props, data })
 } 
 
