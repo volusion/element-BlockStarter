@@ -5,25 +5,18 @@ import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
-import { factory as BlockModuleFactory } from '../src/'
-import { StarterBlockFactory } from '../src/Block';
+import { block as Block } from '../src/'
 import { defaultConfig } from '../src/configs';
 
 describe('The Starter Block', () => {
-    const StarterBlock = StarterBlockFactory(React);
 
     it('renders without errors', () => {
-      const TestBlock = BlockModuleFactory(
-        { React, ElementPropTypes, Components: {}  },
-        {},
-        { StyleSheet, css  }
-      ).block;
-      mount(<TestBlock />)
+      mount(<Block />)
     })
 
     describe('when there is no custom data', () => {
         it('should render the block with the default content', () => {
-            const wrapper = shallow(<StarterBlock />);
+            const wrapper = shallow(<Block />);
             expect(wrapper.text()).toBe(defaultConfig.text);
         });
     });
@@ -33,7 +26,7 @@ describe('The Starter Block', () => {
             const customText = 'Custom Block Text';
             const blockConfig = { text: customText };
 
-            const wrapper = shallow(<StarterBlock {...blockConfig} />);
+            const wrapper = shallow(<Block {...blockConfig} />);
 
             expect(wrapper.text()).toBe(customText);
         });
