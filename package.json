@@ -1,19 +1,19 @@
 {
-  "name": "@volusion/element-block-starter",
-  "version": "1.0.1",
-  "description": "Provides a common starting point for all Element blocks",
-  "main": "index.js",
-  "scripts": {
-    "test": "block-scripts test --watch",
-    "build": "block-scripts test && block-scripts build",
-    "start": "block-scripts start"
-  },
-  "author": "Volusion, LLC",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "@volusion/element-block-scripts": "^1.0.0",
-    "@volusion/element-block-utils": "^1.0.0",
-    "@volusion/element-proptypes": "^1.0.12"
-  }
+    "name": "@volusion/element-block-starter",
+    "version": "1.0.1",
+    "description": "Provides a common starting point for all Element blocks",
+    "main": "index.js",
+    "scripts": {
+        "test": "block-scripts test --watch",
+        "build": "block-scripts test && block-scripts build",
+        "start": "block-scripts start"
+    },
+    "author": "Volusion, LLC",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "@volusion/element-block-scripts": "^1.0.0",
+        "@volusion/element-block-utils": "^1.0.0",
+        "@volusion/element-proptypes": "^1.0.12"
+    }
 }
