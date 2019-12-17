@@ -1,4 +1,4 @@
-const blockModule = volBlockStarterBlock
+const blockModule = window.volBlock_local
 
 const tenantId = '$YOUR_TENANT_ID'
 
