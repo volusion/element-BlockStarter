@@ -1,4 +1,4 @@
-import { StarterBlock as block } from './Block';
+import block from './Block';
 import { configSchema, defaultConfig } from './configs';
 import { getDataProps } from './getDataProps';
 
