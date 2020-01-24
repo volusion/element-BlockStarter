@@ -50,7 +50,7 @@ const props = {
 
 function configureBlock(data) {
   const block = blockModule.block;
-  return block({ ...props, data })
+  return React.createElement(block, { ...props, data });
 } 
 
 function renderBlock(data) {
