@@ -12,8 +12,8 @@
     "license": "MIT",
     "dependencies": {},
     "devDependencies": {
-        "@volusion/element-block-scripts": "^2.1.0",
+        "@volusion/element-block-scripts": "^2.1.1",
         "@volusion/element-block-utils": "^1.0.0",
-        "@volusion/element-proptypes": "^1.0.12"
+        "@volusion/element-proptypes": "^1.0.20"
     }
 }
