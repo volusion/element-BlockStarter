@@ -101,12 +101,12 @@ const props = {
     text: 'Custom prop value for local testing'
 };
 
-function configureBlock(data) {
+function configureBlock(data = {}) {
     const block = blockModule.block;
     return React.createElement(block, { ...props, utils, joinClasses, data });
 }
 
-function renderBlock(data = {}) {
+function renderBlock(data) {
     const block = configureBlock(data);
     const root = document.getElementById('root');
     ReactDOM.render(block, root);
