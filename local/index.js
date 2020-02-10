@@ -24,12 +24,13 @@ const createQueryParams = () => {
     }
     return params;
 };
-const canonicalUrl = queryParams => {
+const canonicalUrl = newQueryParams => {
+    const currentQueryParams = createQueryParams();
     let searchString = '';
-    const queries = Object.keys(queryParams);
+    const queries = Object.keys({ ...currentQueryParams, ...newQueryParams });
     queries.forEach((query, index) => {
         index === 0 ? (searchString += '?') : (searchString += '&');
-        searchString += `${query}=${queryParams[query]}`;
+        searchString += `${query}=${newQueryParams[query]}`;
     });
     return window.location.origin + searchString;
 };
