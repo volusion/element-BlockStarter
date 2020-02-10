@@ -97,15 +97,13 @@ const utils = {
 
 const props = {
     ...blockModule.defaultConfig,
-    utils,
-    joinClasses,
     queryParams: createQueryParams(),
     text: 'Custom prop value for local testing'
 };
 
 function configureBlock(data) {
     const block = blockModule.block;
-    return React.createElement(block, { ...props, data });
+    return React.createElement(block, { ...props, utils, joinClasses, data });
 }
 
 function renderBlock(data = {}) {
