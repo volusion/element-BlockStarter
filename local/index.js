@@ -16,39 +16,7 @@ const globalStyles = {
         secondary: '#333',
         text: '#333'
     },
-    globalComponents: {
-        volComponentButton: {
-            primaryButtonStyles: {
-                textColor: '#fff',
-                hoverTextColor: '#fff',
-                backgroundColor: '#f9783c',
-                hoverBackgroundColor: '#f45722',
-                borderColor: '#f9783c',
-                hoverBorderColor: '#f45722',
-                fontWeight: '800', // 300, 400, 500, 600, 700, 800, 900
-                textTransform: 'none', // none, capitalize, lowercase, uppercase
-                borderThickness: 'basic', // basic, thin, thick, none
-                size: 'large', // small, medium, large, block
-                rounded: 'medium', // none, small, medium, large, pill
-                growOnHover: false
-            },
-            secondaryButtonStyles: {
-                textColor: '#f9783c',
-                hoverTextColor: '#fff',
-                backgroundColor: '#fff',
-                hoverBackgroundColor: '#f9783c',
-                borderColor: '#f9783c',
-                hoverBorderColor: '#f9783c',
-                fontWeight: '800', // 300, 400, 500, 600, 700, 800, 900
-                textTransform: 'none', // none, capitalize, lowercase, uppercase
-                letterSpacing: 'none', // none, tracked, tight, mega
-                borderThickness: 'basic', // basic, thin, thick, none
-                size: 'large', // small, medium, large, block
-                rounded: 'medium', // none, small, medium, large, pill
-                growOnHover: false
-            }
-        }
-    },
+    globalComponents: {},
     typography: {
         baseFontSize: '16px',
         fontFamily: `"Roboto", sans-serif`,
