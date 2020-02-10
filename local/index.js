@@ -42,12 +42,12 @@ const utils = {
     isAmpRequest: /googleamp/i.test(window.location.pathname)
         ? true
         : undefined,
-    queryParams: createQueryParams(),
     canonicalUrl
 };
 
 const props = {
     ...blockModule.defaultConfig,
+    queryParams: createQueryParams(),
     text: 'Custom prop value for local testing'
 };
 
