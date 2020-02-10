@@ -7,9 +7,55 @@ window.ElementSdk.client.configure({
 });
 
 const globalStyles = {
-    color: {},
-    globalComponents: {},
-    typography: {}
+    color: {
+        background: '#fff',
+        link: '#333',
+        linkHover: '#333',
+        primary: '#333',
+        salePrice: '#333',
+        secondary: '#333',
+        text: '#333'
+    },
+    globalComponents: {
+        volComponentButton: {
+            primaryButtonStyles: {
+                textColor: '#fff',
+                hoverTextColor: '#fff',
+                backgroundColor: '#f9783c',
+                hoverBackgroundColor: '#f45722',
+                borderColor: '#f9783c',
+                hoverBorderColor: '#f45722',
+                fontWeight: '800', // 300, 400, 500, 600, 700, 800, 900
+                textTransform: 'none', // none, capitalize, lowercase, uppercase
+                borderThickness: 'basic', // basic, thin, thick, none
+                size: 'large', // small, medium, large, block
+                rounded: 'medium', // none, small, medium, large, pill
+                growOnHover: false
+            },
+            secondaryButtonStyles: {
+                textColor: '#f9783c',
+                hoverTextColor: '#fff',
+                backgroundColor: '#fff',
+                hoverBackgroundColor: '#f9783c',
+                borderColor: '#f9783c',
+                hoverBorderColor: '#f9783c',
+                fontWeight: '800', // 300, 400, 500, 600, 700, 800, 900
+                textTransform: 'none', // none, capitalize, lowercase, uppercase
+                letterSpacing: 'none', // none, tracked, tight, mega
+                borderThickness: 'basic', // basic, thin, thick, none
+                size: 'large', // small, medium, large, block
+                rounded: 'medium', // none, small, medium, large, pill
+                growOnHover: false
+            }
+        }
+    },
+    typography: {
+        baseFontSize: '16px',
+        fontFamily: `"Roboto", sans-serif`,
+        headingFontFamily: `"Roboto", sans-serif`,
+        headingWeight: 700,
+        lineHeight: '1.15'
+    }
 };
 
 const createQueryParams = () => {
