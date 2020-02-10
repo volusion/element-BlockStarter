@@ -36,6 +36,10 @@ const canonicalUrl = (newQueryParams = {}) => {
 
 const { joinClasses, PubSub, ...sdkUtils } = window.ElementSdk;
 
+const serverUtils = {
+    isRendering: true
+};
+
 const utils = {
     ...sdkUtils,
     pubSub: PubSub.PubSub,
@@ -65,4 +69,6 @@ function renderBlock(data = {}) {
 }
 
 window.onload = () =>
-    blockModule.getDataProps({ ...utils }, { ...props }).then(renderBlock);
+    blockModule
+        .getDataProps({ ...utils, ...serverUtils }, { ...props })
+        .then(renderBlock);
