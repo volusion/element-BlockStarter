@@ -1,6 +1,4 @@
 node_modules
 dist
-local/*
-!local/index.html
-!local/index.js
+local/*.umd.js*
 .eslintcache
