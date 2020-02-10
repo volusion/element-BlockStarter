@@ -24,15 +24,14 @@ const createQueryParams = () => {
     }
     return params;
 };
-const canonicalUrl = newQueryParams => {
+const canonicalUrl = (newQueryParams = {}) => {
     const currentQueryParams = createQueryParams();
-    let searchString = '';
-    const queries = Object.keys({ ...currentQueryParams, ...newQueryParams });
-    queries.forEach((query, index) => {
-        index === 0 ? (searchString += '?') : (searchString += '&');
-        searchString += `${query}=${newQueryParams[query]}`;
-    });
-    return window.location.origin + searchString;
+    const allQueries = { ...currentQueryParams, ...newQueryParams };
+    const joinedQueries = Object.keys(allQueries)
+        .map(queryName => `${queryName}=${allQueries[queryName]}`)
+        .join('&');
+    const queryString = joinedQueries ? '?' + joinedQueries : '';
+    return window.location.origin + queryString;
 };
 
 const { joinClasses, PubSub, ...sdkUtils } = window.ElementSdk;
