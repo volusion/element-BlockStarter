@@ -69,4 +69,4 @@ function renderBlock(data = {}) {
 }
 
 window.onload = () =>
-    blockModule.getDataProps(window.ElementSdk, props).then(renderBlock);
+    blockModule.getDataProps({ ...utils }, { ...props }).then(renderBlock);
