@@ -35,10 +35,12 @@ const canonicalUrl = newQueryParams => {
     return window.location.origin + searchString;
 };
 
+const { css, StyleSheet } = aphrodite;
+
 const utils = {
     ...window.ElementSdk,
-    css: aphrodite.css,
-    StyleSheet: aphrodite.StyleSheet,
+    css,
+    StyleSheet,
     isAmpRequest: /googleamp/i.test(window.location.pathname)
         ? true
         : undefined,
