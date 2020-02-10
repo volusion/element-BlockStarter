@@ -36,13 +36,10 @@ const canonicalUrl = newQueryParams => {
 };
 
 const { joinClasses, PubSub, ...sdkUtils } = window.ElementSdk;
-const { css, StyleSheet } = aphrodite;
 
 const utils = {
     ...sdkUtils,
     pubSub: PubSub.PubSub,
-    css,
-    StyleSheet,
     isAmpRequest: /googleamp/i.test(window.location.pathname)
         ? true
         : undefined,
