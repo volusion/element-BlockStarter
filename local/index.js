@@ -7,9 +7,23 @@ window.ElementSdk.client.configure({
 });
 
 const globalStyles = {
-    color: {},
+    color: {
+        background: '#fff',
+        link: '#333',
+        linkHover: '#333',
+        primary: '#333',
+        salePrice: '#333',
+        secondary: '#333',
+        text: '#333'
+    },
     globalComponents: {},
-    typography: {}
+    typography: {
+        baseFontSize: '16px',
+        fontFamily: `"Roboto", sans-serif`,
+        headingFontFamily: `"Roboto", sans-serif`,
+        headingWeight: 700,
+        lineHeight: '1.15'
+    }
 };
 
 const createQueryParams = () => {
@@ -24,35 +38,47 @@ const createQueryParams = () => {
     }
     return params;
 };
-const canonicalUrl = queryParams => {
-    let searchString = '';
-    const queries = Object.keys(queryParams);
-    queries.forEach((query, index) => {
-        index === 0 ? (searchString += '?') : (searchString += '&');
-        searchString += `${query}=${queryParams[query]}`;
-    });
-    return window.location.origin + searchString;
+const canonicalUrl = (newQueryParams = {}) => {
+    const currentQueryParams = createQueryParams();
+    const allQueries = { ...currentQueryParams, ...newQueryParams };
+    const joinedQueries = Object.keys(allQueries)
+        .map(queryName => `${queryName}=${allQueries[queryName]}`)
+        .join('&');
+    const queryString = joinedQueries ? '?' + joinedQueries : '';
+    return window.location.origin + queryString;
+};
+
+const {
+    joinClasses,
+    ElementPropTypes,
+    Components,
+    hydrateBlocks,
+    PubSub,
+    ...sdkUtils
+} = window.ElementSdk;
+
+const serverUtils = {
+    isRendering: true
 };
 
 const utils = {
-    ...window.ElementSdk,
-    css: aphrodite.css,
-    StyleSheet: aphrodite.StyleSheet,
+    ...sdkUtils,
+    pubSub: PubSub.PubSub,
     isAmpRequest: /googleamp/i.test(window.location.pathname)
         ? true
         : undefined,
-    queryParams: createQueryParams(),
     canonicalUrl
 };
 
 const props = {
     ...blockModule.defaultConfig,
+    queryParams: createQueryParams(),
     text: 'Custom prop value for local testing'
 };
 
-function configureBlock(data) {
+function configureBlock(data = {}) {
     const block = blockModule.block;
-    return React.createElement(block, { ...props, data });
+    return React.createElement(block, { ...props, utils, joinClasses, data });
 }
 
 function renderBlock(data) {
@@ -62,4 +88,6 @@ function renderBlock(data) {
 }
 
 window.onload = () =>
-    blockModule.getDataProps(window.ElementSdk, props).then(renderBlock);
+    blockModule
+        .getDataProps({ ...utils, ...serverUtils }, { ...props })
+        .then(renderBlock);
