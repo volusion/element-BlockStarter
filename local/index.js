@@ -62,7 +62,7 @@ function configureBlock(data) {
     return React.createElement(block, { ...props, data });
 }
 
-function renderBlock(data) {
+function renderBlock(data = {}) {
     const block = configureBlock(data);
     const root = document.getElementById('root');
     ReactDOM.render(block, root);
