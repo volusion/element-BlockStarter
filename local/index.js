@@ -35,10 +35,12 @@ const canonicalUrl = newQueryParams => {
     return window.location.origin + searchString;
 };
 
+const { joinClasses, PubSub, ...sdkUtils } = window.ElementSdk;
 const { css, StyleSheet } = aphrodite;
 
 const utils = {
-    ...window.ElementSdk,
+    ...sdkUtils,
+    pubSub: PubSub.PubSub,
     css,
     StyleSheet,
     isAmpRequest: /googleamp/i.test(window.location.pathname)
@@ -49,6 +51,8 @@ const utils = {
 
 const props = {
     ...blockModule.defaultConfig,
+    utils,
+    joinClasses,
     queryParams: createQueryParams(),
     text: 'Custom prop value for local testing'
 };
