@@ -80,7 +80,14 @@ const canonicalUrl = (newQueryParams = {}) => {
     return window.location.origin + queryString;
 };
 
-const { joinClasses, PubSub, ...sdkUtils } = window.ElementSdk;
+const {
+    joinClasses,
+    ElementPropTypes,
+    Components,
+    hydrateBlocks,
+    PubSub,
+    ...sdkUtils
+} = window.ElementSdk;
 
 const serverUtils = {
     isRendering: true
