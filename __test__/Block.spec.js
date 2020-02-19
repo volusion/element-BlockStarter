@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 import { block as Block } from '../src/';
 import { defaultConfig } from '../src/configs';
 
-describe('The Starter Block', () => {
+describe('The Block', () => {
     StyleSheetTestUtils.suppressStyleInjection();
 
     it('renders without errors', () => {
