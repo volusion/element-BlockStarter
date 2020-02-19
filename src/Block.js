@@ -2,10 +2,10 @@ import React from 'react';
 
 import { defaultConfig } from './configs';
 
-function StarterBlock(props) {
+const Block = props => {
     return <h1>{props.text}</h1>;
-}
+};
 
-StarterBlock.defaultProps = defaultConfig;
+Block.defaultProps = defaultConfig;
 
-export default StarterBlock;
+export default Block;

@@ -1,5 +1,3 @@
-import block from './Block';
-import { configSchema, defaultConfig } from './configs';
-import { getDataProps } from './getDataProps';
-
-export { block, getDataProps, defaultConfig, configSchema };
+export { default as block } from './Block';
+export { configSchema, defaultConfig } from './configs';
+export { getDataProps } from './getDataProps';
