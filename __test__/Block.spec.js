@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, css } from 'aphrodite';
+import { StyleSheet, css, StyleSheetTestUtils } from 'aphrodite';
 import { ElementPropTypes } from '@volusion/element-proptypes';
 import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -9,6 +9,8 @@ import { block as Block } from '../src/';
 import { defaultConfig } from '../src/configs';
 
 describe('The Starter Block', () => {
+    StyleSheetTestUtils.suppressStyleInjection();
+
     it('renders without errors', () => {
         mount(<Block />);
     });
