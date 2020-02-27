@@ -39,8 +39,7 @@ const createQueryParams = () => {
     return params;
 };
 const canonicalUrl = (newQueryParams = {}) => {
-    const currentQueryParams = createQueryParams();
-    const allQueries = { ...currentQueryParams, ...newQueryParams };
+    const allQueries = {...newQueryParams};
     const joinedQueries = Object.keys(allQueries)
         .map(queryName => `${queryName}=${allQueries[queryName]}`)
         .join('&');
