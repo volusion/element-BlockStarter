@@ -55,6 +55,27 @@ const addLink = href => {
     document.head.appendChild(link);
 };
 
+const isAmpRequest = /googleamp/i.test(window.location.pathname)
+    ? true
+    : undefined;
+
+const addAmpScript = customElement => {
+    if (isAmpRequest) {
+        const script = document.createElement('script');
+        script.setAttribute('async', '');
+        script.setAttribute('custom-element', customElement);
+        script.setAttribute(
+            'src',
+            `https://cdn.ampproject.org/v0/${customElement}-0.1.js`
+        );
+        document.head.appendChild(script);
+    } else {
+        console.error(
+            `"addAmpScript" is only available on AMP pages. Please check if "isAmpRequest" is true before using this function.`
+        );
+    }
+};
+
 const {
     joinClasses,
     ElementPropTypes,
@@ -65,6 +86,7 @@ const {
 } = window.ElementSdk;
 
 const serverUtils = {
+    addAmpScript,
     addLink
 };
 
@@ -76,9 +98,7 @@ const utils = {
     ...sdkUtils,
     ...serverUtils,
     pubSub: PubSub.PubSub,
-    isAmpRequest: /googleamp/i.test(window.location.pathname)
-        ? true
-        : undefined,
+    isAmpRequest,
     canonicalUrl
 };
 
