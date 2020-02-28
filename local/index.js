@@ -82,12 +82,15 @@ const {
     Components,
     hydrateBlocks,
     PubSub,
+    addScript,
     ...sdkUtils
 } = window.ElementSdk;
 
 const serverUtils = {
     addAmpScript,
-    addLink
+    addLink,
+    addScript,
+    isAmpRequest,
 };
 
 const dataUtils = {
@@ -98,7 +101,6 @@ const utils = {
     ...sdkUtils,
     ...serverUtils,
     pubSub: PubSub.PubSub,
-    isAmpRequest,
     canonicalUrl
 };
 
