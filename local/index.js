@@ -47,26 +47,68 @@ const canonicalUrl = (newQueryParams = {}) => {
     const queryString = joinedQueries ? '?' + joinedQueries : '';
     return window.location.origin + queryString;
 };
+const addLink = href => {
+    const link = document.createElement('link');
+    link.setAttribute('type', 'text/css');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', href);
+    document.head.appendChild(link);
+};
 
+const isAmpRequest = /googleamp/i.test(window.location.pathname)
+    ? true
+    : undefined;
+
+const addAmpScript = customElement => {
+    if (isAmpRequest) {
+        const script = document.createElement('script');
+        script.setAttribute('async', '');
+        script.setAttribute('custom-element', customElement);
+        script.setAttribute(
+            'src',
+            `https://cdn.ampproject.org/v0/${customElement}-0.1.js`
+        );
+        document.head.appendChild(script);
+    } else {
+        console.error(
+            `"addAmpScript" is only available on AMP pages. Please check if "isAmpRequest" is true before using this function.`
+        );
+    }
+};
+
+const throwNotFound = () =>
+    console.error(
+        `"throwNotFound()" was called. On a live site, this would load a 404 page.`
+    );
+
+/* eslint-disable no-unused-vars */
 const {
     joinClasses,
     ElementPropTypes,
     Components,
     hydrateBlocks,
     PubSub,
+    addScript,
     ...sdkUtils
 } = window.ElementSdk;
+/* eslint-enable no-unused-vars */
 
 const serverUtils = {
+    addAmpScript,
+    addLink,
+    addScript,
+    isAmpRequest,
+    throwNotFound
+};
+
+const dataUtils = {
     isRendering: true
 };
 
-const utils = {
+const clientUtils = {
     ...sdkUtils,
+    ...serverUtils,
     pubSub: PubSub.PubSub,
-    isAmpRequest: /googleamp/i.test(window.location.pathname)
-        ? true
-        : undefined,
     canonicalUrl
 };
 
@@ -78,7 +120,12 @@ const props = {
 
 function configureBlock(data = {}) {
     const block = blockModule.block;
-    return React.createElement(block, { ...props, utils, joinClasses, data });
+    return React.createElement(block, {
+        ...props,
+        utils: { ...clientUtils, ...serverUtils },
+        joinClasses,
+        data
+    });
 }
 
 function renderBlock(data) {
@@ -89,5 +136,8 @@ function renderBlock(data) {
 
 window.onload = () =>
     blockModule
-        .getDataProps({ ...utils, ...serverUtils }, { ...props })
+        .getDataProps(
+            { ...clientUtils, ...serverUtils, ...dataUtils },
+            { ...props }
+        )
         .then(renderBlock);
