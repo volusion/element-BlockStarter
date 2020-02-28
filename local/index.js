@@ -64,18 +64,22 @@ const {
     ...sdkUtils
 } = window.ElementSdk;
 
+const serverUtils = {
+    addLink
+};
+
 const dataUtils = {
     isRendering: true
 };
 
 const utils = {
     ...sdkUtils,
+    ...serverUtils,
     pubSub: PubSub.PubSub,
     isAmpRequest: /googleamp/i.test(window.location.pathname)
         ? true
         : undefined,
-    canonicalUrl,
-    addLink
+    canonicalUrl
 };
 
 const props = {
