@@ -134,5 +134,8 @@ function renderBlock(data) {
 
 window.onload = () =>
     blockModule
-        .getDataProps({ ...clientUtils, ...dataUtils }, { ...props })
+        .getDataProps(
+            { ...clientUtils, ...serverUtils, ...dataUtils },
+            { ...props }
+        )
         .then(renderBlock);
