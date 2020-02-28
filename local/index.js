@@ -76,6 +76,11 @@ const addAmpScript = customElement => {
     }
 };
 
+const throwNotFound = () =>
+    console.error(
+        `"throwNotFound()" was called. On a live site, this would load a 404 page.`
+    );
+
 const {
     joinClasses,
     ElementPropTypes,
@@ -91,6 +96,7 @@ const serverUtils = {
     addLink,
     addScript,
     isAmpRequest,
+    throwNotFound
 };
 
 const dataUtils = {
