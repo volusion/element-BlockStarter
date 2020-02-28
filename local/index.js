@@ -38,10 +38,9 @@ const createQueryParams = () => {
     }
     return params;
 };
-const canonicalUrl = (newQueryParams = {}) => {
-    const allQueries = {...newQueryParams};
-    const joinedQueries = Object.keys(allQueries)
-        .map(queryName => `${queryName}=${allQueries[queryName]}`)
+const canonicalUrl = (queryParams = {}) => {
+    const joinedQueries = Object.keys(queryParams)
+        .map(queryName => `${queryName}=${queryParams[queryName]}`)
         .join('&');
     const queryString = joinedQueries ? '?' + joinedQueries : '';
     return window.location.origin + queryString;
