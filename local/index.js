@@ -81,6 +81,7 @@ const throwNotFound = () =>
         `"throwNotFound()" was called. On a live site, this would load a 404 page.`
     );
 
+/* eslint-disable no-unused-vars */
 const {
     joinClasses,
     ElementPropTypes,
@@ -90,6 +91,7 @@ const {
     addScript,
     ...sdkUtils
 } = window.ElementSdk;
+/* eslint-enable no-unused-vars */
 
 const serverUtils = {
     addAmpScript,
