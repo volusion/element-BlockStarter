@@ -122,7 +122,7 @@ function configureBlock(data = {}) {
     const block = blockModule.block;
     return React.createElement(block, {
         ...props,
-        clientUtils,
+        utils: { ...clientUtils, ...serverUtils },
         joinClasses,
         data
     });
