@@ -47,6 +47,13 @@ const canonicalUrl = (newQueryParams = {}) => {
     const queryString = joinedQueries ? '?' + joinedQueries : '';
     return window.location.origin + queryString;
 };
+const addLink = href => {
+    const link = document.createElement('link');
+    link.setAttribute('type', 'text/css');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', href);
+    document.head.appendChild(link);
+};
 
 const {
     joinClasses,
@@ -67,7 +74,8 @@ const utils = {
     isAmpRequest: /googleamp/i.test(window.location.pathname)
         ? true
         : undefined,
-    canonicalUrl
+    canonicalUrl,
+    addLink
 };
 
 const props = {
