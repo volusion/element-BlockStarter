@@ -103,7 +103,7 @@ const dataUtils = {
     isRendering: true
 };
 
-const utils = {
+const clientUtils = {
     ...sdkUtils,
     ...serverUtils,
     pubSub: PubSub.PubSub,
@@ -118,7 +118,12 @@ const props = {
 
 function configureBlock(data = {}) {
     const block = blockModule.block;
-    return React.createElement(block, { ...props, utils, joinClasses, data });
+    return React.createElement(block, {
+        ...props,
+        clientUtils,
+        joinClasses,
+        data
+    });
 }
 
 function renderBlock(data) {
@@ -129,5 +134,5 @@ function renderBlock(data) {
 
 window.onload = () =>
     blockModule
-        .getDataProps({ ...utils, ...dataUtils }, { ...props })
+        .getDataProps({ ...clientUtils, ...dataUtils }, { ...props })
         .then(renderBlock);
