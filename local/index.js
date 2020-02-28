@@ -64,7 +64,7 @@ const {
     ...sdkUtils
 } = window.ElementSdk;
 
-const serverUtils = {
+const dataUtils = {
     isRendering: true
 };
 
@@ -97,5 +97,5 @@ function renderBlock(data) {
 
 window.onload = () =>
     blockModule
-        .getDataProps({ ...utils, ...serverUtils }, { ...props })
+        .getDataProps({ ...utils, ...dataUtils }, { ...props })
         .then(renderBlock);
