@@ -1,1 +1,5 @@
-export const getStyles = (globalStyles, blockConfig) => ({});
+export const getStyles = blockConfig => ({
+    example: {
+        fontSize: '2rem'
+    }
+});
