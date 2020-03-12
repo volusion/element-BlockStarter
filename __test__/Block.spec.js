@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, css, StyleSheetTestUtils } from 'aphrodite';
 import { ElementPropTypes } from '@volusion/element-proptypes';
-import { configure, shallow, mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
@@ -17,7 +17,7 @@ describe('The Block', () => {
 
     describe('when there is no custom data', () => {
         it('should render the block with the default content', () => {
-            const wrapper = shallow(<Block />);
+            const wrapper = mount(<Block />);
             expect(wrapper.text()).toBe(defaultConfig.text);
         });
     });
@@ -27,7 +27,7 @@ describe('The Block', () => {
             const customText = 'Custom Block Text';
             const blockConfig = { text: customText };
 
-            const wrapper = shallow(<Block {...blockConfig} />);
+            const wrapper = mount(<Block {...blockConfig} />);
 
             expect(wrapper.text()).toBe(customText);
         });
