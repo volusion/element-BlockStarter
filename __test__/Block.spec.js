@@ -25,9 +25,7 @@ describe('The Block', () => {
         it('should render the block using the custom data', () => {
             const customText = 'Custom Block Text';
             const blockConfig = { text: customText };
-
             const wrapper = mount(<Block {...blockConfig} />);
-
             expect(wrapper.text()).toBe(customText);
         });
     });
