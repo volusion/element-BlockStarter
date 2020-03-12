@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, css, StyleSheetTestUtils } from 'aphrodite';
-import { ElementPropTypes } from '@volusion/element-proptypes';
+import { StyleSheetTestUtils } from 'aphrodite';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
