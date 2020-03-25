@@ -89,6 +89,7 @@ npm run build && element publish -m
 
 -   At this point, your block is in a "staging" state. You can preview your changes in Site Designer and on the storefront through the Preview link in Site Designer, but they will not be visible on the live site.
 -   If you need to make additional updates after this point, you can use the `npm run build && element update` command to stage your changes.
+-   Major updates will will require a manual opt-in from users in order to upgrade from the old version to the new one after release. Any new instances of the block that are dropped into the page will automatically use the latest version.
 
 ### Releasing to production
 
