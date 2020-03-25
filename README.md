@@ -67,7 +67,7 @@ If this is the very first time you're pushing your block up, you will need to ru
 npm run build && element publish -n "<Your Displayed Block Name>"
 ```
 
-At this point, your block is in a "staging" state. You can preview your block in Site Designer and through the Preview link in Site Designer, but it will not be visible on the live site.
+-   At this point, your block is in a "staging" state. You can preview your block in Site Designer and on the storefront through the Preview link in Site Designer, but it will not be visible on the live site.
 
 ### Minor updates
 
@@ -77,7 +77,7 @@ After your block has been published the first time, if you are making a minor ve
 npm run build && element update
 ```
 
-At this point, your block is in a "staging" state. You can preview your changes in Site Designer and through the Preview link in Site Designer, but they will not be visible on the live site.
+-   At this point, your block is in a "staging" state. You can preview your changes in Site Designer and on the storefront through the Preview link in Site Designer, but they will not be visible on the live site.
 
 ### Major updates
 
@@ -87,11 +87,12 @@ If you have a breaking change that you need to make, you can use the below comma
 npm run build && element publish -m
 ```
 
-If you need to make additional updates after this point, you can use the `npm run build && element update` command to stage your changes.
+-   At this point, your block is in a "staging" state. You can preview your changes in Site Designer and on the storefront through the Preview link in Site Designer, but they will not be visible on the live site.
+-   If you need to make additional updates after this point, you can use the `npm run build && element update` command to stage your changes.
 
 ### Releasing to production
 
-Once you have QA'd your block updates in Site Designer and the Preview link, you can release your code to production using the below command. **If you have made minor updates only (you have NOT run `element publish -m`), these changes will immediately take effect on the live site.**
+Once you have completed your QA process on your block updates in Site Designer and the Preview link, you can release your code to production using the below command. **If you have made minor updates only (you have NOT run `element publish -m`), these changes will immediately take effect on the live site.**
 
 ```bash
 element release
