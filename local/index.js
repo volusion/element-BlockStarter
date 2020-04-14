@@ -2,6 +2,16 @@ const blockModule = window.volBlock_local;
 
 const tenantId = '$YOUR_TENANT_ID';
 
+const props = {
+    ...blockModule.defaultConfig,
+    queryParams: createQueryParams(),
+    text: 'Custom prop value for local testing'
+};
+
+const dataUtils = {
+    isRendering: true
+};
+
 window.ElementSdk.client.configure({
     tenant: tenantId
 });
@@ -100,21 +110,11 @@ const serverUtils = {
     throwNotFound
 };
 
-const dataUtils = {
-    isRendering: true
-};
-
 const clientUtils = {
     ...sdkUtils,
     ...serverUtils,
     pubSub: PubSub.PubSub,
     canonicalUrl
-};
-
-const props = {
-    ...blockModule.defaultConfig,
-    queryParams: createQueryParams(),
-    text: 'Custom prop value for local testing'
 };
 
 function configureBlock(data = {}) {
