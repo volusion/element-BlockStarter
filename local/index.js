@@ -132,6 +132,13 @@ function renderBlock(data) {
     ReactDOM.render(block, root);
 }
 
+// If tenant has been updated, set storeInformation
+if (!/\$/.test(clientUtils.client.tenant)) {
+    clientUtils.client.storeInfo.get().then(storeInformation => {
+        clientUtils.client.setStoreInfo({ ...storeInformation });
+    });
+}
+
 window.onload = () =>
     blockModule
         .getDataProps(
