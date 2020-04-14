@@ -134,7 +134,7 @@ function renderBlock(data) {
 }
 
 // If tenant has been updated, set storeInformation
-if (!/\$/.test(clientUtils.client.tenant)) {
+if (!/\$YOUR_TENANT_ID/i.test(clientUtils.client.tenant)) {
     clientUtils.client.storeInfo.get().then(storeInformation => {
         clientUtils.client.setStoreInfo({ ...storeInformation });
     });
