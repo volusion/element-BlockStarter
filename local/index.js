@@ -26,7 +26,7 @@ const globalStyles = {
     }
 };
 
-const createQueryParams = () => {
+function createQueryParams() {
     const params = {};
     const searchParams = window.location.search;
     if (searchParams) {
@@ -37,27 +37,27 @@ const createQueryParams = () => {
         });
     }
     return params;
-};
-const canonicalUrl = (queryParams = {}) => {
+}
+function canonicalUrl(queryParams = {}) {
     const joinedQueries = Object.keys(queryParams)
         .map(queryName => `${queryName}=${queryParams[queryName]}`)
         .join('&');
     const queryString = joinedQueries ? '?' + joinedQueries : '';
     return window.location.origin + queryString;
-};
-const addLink = href => {
+}
+function addLink(href) {
     const link = document.createElement('link');
     link.setAttribute('type', 'text/css');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', href);
     document.head.appendChild(link);
-};
+}
 
 const isAmpRequest = /googleamp/i.test(window.location.pathname)
     ? true
     : undefined;
 
-const addAmpScript = customElement => {
+function addAmpScript(customElement) {
     if (isAmpRequest) {
         const script = document.createElement('script');
         script.setAttribute('async', '');
@@ -72,12 +72,13 @@ const addAmpScript = customElement => {
             `"addAmpScript" is only available on AMP pages. Please check if "isAmpRequest" is true before using this function.`
         );
     }
-};
+}
 
-const throwNotFound = () =>
+function throwNotFound() {
     console.error(
         `"throwNotFound()" was called. On a live site, this would load a 404 page.`
     );
+}
 
 /* eslint-disable no-unused-vars */
 const {
