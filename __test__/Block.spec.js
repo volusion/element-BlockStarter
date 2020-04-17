@@ -1,8 +1,5 @@
 import React from 'react';
-import { StyleSheetTestUtils } from 'aphrodite';
-import { configure, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
+import { mount } from 'enzyme';
 import {
     mockUtils as utils,
     joinClasses
@@ -11,7 +8,6 @@ import { block as Block, defaultConfig } from '../src';
 
 let props;
 describe('The Block', () => {
-    StyleSheetTestUtils.suppressStyleInjection();
     beforeEach(() => {
         props = { utils, joinClasses };
     });
