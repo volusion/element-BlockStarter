@@ -3,29 +3,28 @@ import { StyleSheetTestUtils } from 'aphrodite';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
+import { mockUtils as utils, joinClasses } from '@volusion/element-block-utils';
+import { block as Block, defaultConfig } from '../src';
 
-import { block as Block } from '../src/';
-import { defaultConfig } from '../src/configs';
-
+let props;
 describe('The Block', () => {
     StyleSheetTestUtils.suppressStyleInjection();
-
-    it('renders without errors', () => {
-        mount(<Block />);
+    beforeEach(() => {
+        props = { utils, joinClasses };
     });
-
+    it('renders without errors', () => {
+        mount(<Block {...props} />);
+    });
     describe('when there is no custom data', () => {
         it('should render the block with the default content', () => {
-            const wrapper = mount(<Block />);
+            const wrapper = mount(<Block {...props} />);
             expect(wrapper.text()).toBe(defaultConfig.text);
         });
     });
-
     describe('when given custom data', () => {
         it('should render the block using the custom data', () => {
             const customText = 'Custom Block Text';
-            const blockConfig = { text: customText };
-            const wrapper = mount(<Block {...blockConfig} />);
+            const wrapper = mount(<Block {...props} text={customText} />);
             expect(wrapper.text()).toBe(customText);
         });
     });
