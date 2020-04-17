@@ -3,7 +3,10 @@ import { StyleSheetTestUtils } from 'aphrodite';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
-import { mockUtils as utils, joinClasses } from '@volusion/element-block-utils';
+import {
+    mockUtils as utils,
+    joinClasses
+} from '@volusion/element-block-utils/test-utils';
 import { block as Block, defaultConfig } from '../src';
 
 let props;
