@@ -15,5 +15,9 @@
         "@volusion/element-block-scripts": "^2.2.3",
         "@volusion/element-block-utils": "^1.1.4",
         "@volusion/element-proptypes": "^1.1.2"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/volusion/element-BlockStarter.git"
     }
 }
