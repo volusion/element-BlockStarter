@@ -9,7 +9,12 @@ import { block as Block, defaultConfig } from '../src';
 let props;
 describe('The Block', () => {
     beforeEach(() => {
-        props = { data: {}, utils, joinClasses, queryParams: {} };
+        props = {
+            data: {},
+            utils,
+            joinClasses,
+            queryParams: {}
+        };
     });
     it('renders without errors', () => {
         mount(<Block {...props} />);
