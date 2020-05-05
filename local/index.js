@@ -2,9 +2,7 @@ const blockModule = window.volBlock_local;
 
 const tenantId = '$YOUR_TENANT_ID';
 
-const props = {
-    ...blockModule.defaultConfig,
-    queryParams: createQueryParams(),
+const localEnvPropOverrides = {
     text: 'Custom prop value for local testing'
 };
 
@@ -120,7 +118,9 @@ const clientUtils = {
 function configureBlock(data = {}) {
     const block = blockModule.block;
     return React.createElement(block, {
-        ...props,
+        ...blockModule.defaultConfig,
+        ...localEnvPropOverrides,
+        queryParams: createQueryParams(),
         utils: { ...clientUtils, ...serverUtils },
         joinClasses,
         data
@@ -144,6 +144,10 @@ window.onload = () =>
     blockModule
         .getDataProps(
             { ...clientUtils, ...serverUtils, ...dataUtils },
-            { ...props }
+            {
+                ...localEnvPropOverrides,
+                ...blockModule.defaultConfig,
+                queryParams: createQueryParams()
+            }
         )
         .then(renderBlock);
