@@ -14,26 +14,6 @@ window.ElementSdk.client.configure({
     tenant: tenantId
 });
 
-const globalStyles = {
-    color: {
-        background: '#fff',
-        link: '#333',
-        linkHover: '#333',
-        primary: '#333',
-        salePrice: '#333',
-        secondary: '#333',
-        text: '#333'
-    },
-    globalComponents: {},
-    typography: {
-        baseFontSize: '16px',
-        fontFamily: `"Roboto", sans-serif`,
-        headingFontFamily: `"Roboto", sans-serif`,
-        headingWeight: 700,
-        lineHeight: '1.15'
-    }
-};
-
 function createQueryParams() {
     const params = {};
     const searchParams = window.location.search;
