@@ -134,8 +134,8 @@ window.onload = () =>
         .getDataProps(
             { ...clientUtils, ...serverUtils, ...dataUtils },
             {
-                ...localEnvPropOverrides,
                 ...blockModule.defaultConfig,
+                ...localEnvPropOverrides,
                 queryParams: createQueryParams()
             }
         )
