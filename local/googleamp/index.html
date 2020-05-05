@@ -96,8 +96,42 @@
                 }
             </style></noscript
         >
+        <style amp-custom>
+            .local-env-banner {
+                background-color: #4285f4;
+                color: white;
+            }
+            .local-env-btn {
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                border: 2px solid white;
+                background-color: inherit;
+                color: white;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+            .local-env-btn:hover {
+                background-color: white;
+                color: #4285f4;
+            }
+        </style>
     </head>
     <body>
-        <div id="root"></div>
+        <div
+            class="local-env-banner flex items-center flex-wrap flex-nowrap-ns justify-between"
+        >
+            <div class="pa3">
+                <a href="../"
+                    ><button class="local-env-btn">View non-AMP page</button></a
+                >
+            </div>
+            <div class="dn db-l pa3">
+                Due to the nature of local environments, you cannot test full
+                AMP compliance without staging your block. This page serves as a
+                means of verifying your canonicalUrls and AMP elements are
+                functioning correctly.
+            </div>
+        </div>
+        <div id="root" class="relative"></div>
     </body>
 </html>
