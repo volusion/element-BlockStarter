@@ -133,11 +133,20 @@ function renderBlock(data) {
     ReactDOM.render(block, root);
 }
 
+function setFallbackStoreInfo() {
+    clientUtils.client.setStoreInfo({});
+}
+
 // If tenant has been updated, set storeInformation
 if (!/\$YOUR_TENANT_ID/i.test(clientUtils.client.tenant)) {
-    clientUtils.client.storeInfo.get().then(storeInformation => {
-        clientUtils.client.setStoreInfo({ ...storeInformation });
-    });
+    clientUtils.client.storeInfo
+        .get()
+        .then(storeInformation => {
+            clientUtils.client.setStoreInfo({ ...storeInformation });
+        })
+        .catch(setFallbackStoreInfo);
+} else {
+    setFallbackStoreInfo();
 }
 
 window.onload = () =>
