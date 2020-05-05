@@ -1,5 +1,3 @@
-const blockModule = window.volBlock_local;
-
 const tenantId = '$YOUR_TENANT_ID';
 
 const localEnvPropOverrides = {
@@ -9,6 +7,8 @@ const localEnvPropOverrides = {
 const dataUtils = {
     isRendering: true
 };
+
+const blockModule = window.volBlock_local;
 
 window.ElementSdk.client.configure({
     tenant: tenantId
