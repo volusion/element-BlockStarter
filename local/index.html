@@ -28,8 +28,31 @@
         <script src="./component.umd.js"></script>
         <script src="./index.js"></script>
         <link rel="stylesheet" href="./index.css" />
+        <style>
+            .local-env-banner {
+                background-color: #4285f4;
+                color: white;
+            }
+            .local-env-btn {
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                border: 2px solid white;
+                background-color: inherit;
+                color: white;
+                font-weight: bold;
+            }
+            .local-env-btn:hover {
+                background-color: white;
+                color: #4285f4;
+            }
+        </style>
     </head>
     <body>
-        <div id="root"></div>
+        <div class="local-env-banner pa3">
+            <a href="./googleamp/#development=1"
+                ><button class="local-env-btn">View AMP page</button></a
+            >
+        </div>
+        <div id="root" class="relative"></div>
     </body>
 </html>

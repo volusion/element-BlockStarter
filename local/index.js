@@ -1,10 +1,6 @@
-const blockModule = window.volBlock_local;
-
 const tenantId = '$YOUR_TENANT_ID';
 
-const props = {
-    ...blockModule.defaultConfig,
-    queryParams: createQueryParams(),
+const localEnvPropOverrides = {
     text: 'Custom prop value for local testing'
 };
 
@@ -12,29 +8,11 @@ const dataUtils = {
     isRendering: true
 };
 
+const blockModule = window.volBlock_local;
+
 window.ElementSdk.client.configure({
     tenant: tenantId
 });
-
-const globalStyles = {
-    color: {
-        background: '#fff',
-        link: '#333',
-        linkHover: '#333',
-        primary: '#333',
-        salePrice: '#333',
-        secondary: '#333',
-        text: '#333'
-    },
-    globalComponents: {},
-    typography: {
-        baseFontSize: '16px',
-        fontFamily: `"Roboto", sans-serif`,
-        headingFontFamily: `"Roboto", sans-serif`,
-        headingWeight: 700,
-        lineHeight: '1.15'
-    }
-};
 
 function createQueryParams() {
     const params = {};
@@ -120,7 +98,9 @@ const clientUtils = {
 function configureBlock(data = {}) {
     const block = blockModule.block;
     return React.createElement(block, {
-        ...props,
+        ...blockModule.defaultConfig,
+        ...localEnvPropOverrides,
+        queryParams: createQueryParams(),
         utils: { ...clientUtils, ...serverUtils },
         joinClasses,
         data
@@ -133,17 +113,30 @@ function renderBlock(data) {
     ReactDOM.render(block, root);
 }
 
+function setFallbackStoreInfo() {
+    clientUtils.client.setStoreInfo({});
+}
+
 // If tenant has been updated, set storeInformation
 if (!/\$YOUR_TENANT_ID/i.test(clientUtils.client.tenant)) {
-    clientUtils.client.storeInfo.get().then(storeInformation => {
-        clientUtils.client.setStoreInfo({ ...storeInformation });
-    });
+    clientUtils.client.storeInfo
+        .get()
+        .then(storeInformation => {
+            clientUtils.client.setStoreInfo({ ...storeInformation });
+        })
+        .catch(setFallbackStoreInfo);
+} else {
+    setFallbackStoreInfo();
 }
 
 window.onload = () =>
     blockModule
         .getDataProps(
             { ...clientUtils, ...serverUtils, ...dataUtils },
-            { ...props }
+            {
+                ...blockModule.defaultConfig,
+                ...localEnvPropOverrides,
+                queryParams: createQueryParams()
+            }
         )
         .then(renderBlock);

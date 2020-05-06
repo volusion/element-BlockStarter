@@ -7,11 +7,11 @@ import {
 import { block as Block, defaultConfig } from '../src';
 
 let props;
-describe('The Block', () => {
+describe('The Block when loaded over AMP', () => {
     beforeEach(() => {
         props = {
             data: {},
-            utils,
+            utils: { ...utils, isAmpRequest: true },
             joinClasses,
             queryParams: {}
         };
