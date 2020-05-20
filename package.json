@@ -13,7 +13,7 @@
     "dependencies": {},
     "devDependencies": {
         "@volusion/element-block-scripts": "^2.2.3",
-        "@volusion/element-block-utils": "^1.1.4",
-        "@volusion/element-proptypes": "^1.1.2"
+        "@volusion/element-block-utils": "^2.0.0",
+        "@volusion/element-proptypes": "^1.1.3"
     }
 }
