@@ -1,4 +1,5 @@
 const tenantId = '$YOUR_TENANT_ID';
+const storeUrl = "https://www.example.com";
 
 const localEnvPropOverrides = {
     text: 'Custom prop value for local testing'
@@ -85,7 +86,8 @@ const serverUtils = {
     addLink,
     addScript,
     isAmpRequest,
-    throwNotFound
+    throwNotFound,
+    storeUrl
 };
 
 const clientUtils = {
