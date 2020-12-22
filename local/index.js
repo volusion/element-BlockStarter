@@ -1,4 +1,7 @@
 const tenantId = '$YOUR_TENANT_ID';
+// You can customize this value for local testing
+// if you use utils.storeUrl, but it's not required otherwise
+const storeUrl = 'http://localhost:4000/';
 
 const localEnvPropOverrides = {
     text: 'Custom prop value for local testing'
@@ -85,7 +88,8 @@ const serverUtils = {
     addLink,
     addScript,
     isAmpRequest,
-    throwNotFound
+    throwNotFound,
+    storeUrl
 };
 
 const clientUtils = {
