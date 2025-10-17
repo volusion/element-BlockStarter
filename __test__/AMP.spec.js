@@ -1,8 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import {
     mockUtils as utils,
-    joinClasses
+    joinClasses,
 } from '@volusion/element-block-utils/test-utils';
 import { block as Block, defaultConfig } from '../src';
 
@@ -13,23 +13,23 @@ describe('The Block when loaded over AMP', () => {
             data: {},
             utils: { ...utils, isAmpRequest: true },
             joinClasses,
-            queryParams: {}
+            queryParams: {},
         };
     });
     it('renders without errors', () => {
-        mount(<Block {...props} />);
+        render(<Block {...props} />);
     });
     describe('when there is no custom data', () => {
         it('should render the block with the default content', () => {
-            const wrapper = mount(<Block {...props} />);
-            expect(wrapper.text()).toBe(defaultConfig.text);
+            render(<Block {...props} />);
+            expect(screen.getByText(defaultConfig.text)).toBeInTheDocument();
         });
     });
     describe('when given custom data', () => {
         it('should render the block using the custom data', () => {
             const customText = 'Custom Block Text';
-            const wrapper = mount(<Block {...props} text={customText} />);
-            expect(wrapper.text()).toBe(customText);
+            render(<Block {...props} text={customText} />);
+            expect(screen.getByText(customText)).toBeInTheDocument();
         });
     });
 });
